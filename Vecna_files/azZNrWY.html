@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<!-- saved from url=(0070)https://cdpn.io/Lasy-Crazy/fullpage/azZNrWY?nocache=true&view=fullpage -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  
+
+    <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png">
+
+    <meta name="apple-mobile-web-app-title" content="CodePen">
+
+    <link rel="icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+
+    <link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg" color="#111">
+
+
+
+    <script src="./authorizeDataCapture-54a983db731e5eada9ea.js.download"></script>
+
+    <script src="./stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js.download"></script>
+
+
+  <title>Untitled</title>
+
+    <link rel="canonical" href="https://codepen.io/Lasy-Crazy/pen/azZNrWY">
+  
+  
+  
+  
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+</head>
+
+<body translate="no">
+  
+
+
+  
+  <title>Countdown</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      color: red;
+      font-family: "Times New Roman", serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    .line {
+      width: 420px;
+      height: 2px;
+      background: red;
+      margin: 20px auto;
+      box-shadow: 0 0 12px red;
+    }
+
+    .timer {
+      font-size: 64px;
+      letter-spacing: 6px;
+      text-shadow: 0 0 25px red;
+    }
+
+    .labels {
+      width: 420px;
+      display: flex;
+      justify-content: space-between;
+      margin: 10px auto 0;
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+
+    .text {
+      margin-top: 20px;
+      font-size: 18px;
+      text-shadow: 0 0 12px red;
+    }
+
+    .upside-down {
+      transform: rotate(180deg);
+      opacity: 0.8;
+      margin-top: 5px;
+    }
+  </style>
+
+
+
+  <div class="container">
+    <div class="line"></div>
+
+    <div class="timer" id="countdown">05:29:48</div>
+
+    <div class="labels">
+      <span>HOURS</span>
+      <span>MINUTES</span>
+      <span>SECONDS</span>
+    </div>
+
+    <div class="line"></div>
+
+    <div class="text">sǝʌᴉ˥ ɐuɔǝΛ</div>
+    <div class="text upside-down"></div>
+  </div>
+
+  <script>
+    // 5 hours, 30 minutes, 5 seconds
+    let totalSeconds = (5 * 3600) + (30 * 60) + 5;
+
+    function updateCountdown() {
+      if (totalSeconds <= 0) {
+        document.getElementById("countdown").textContent = "00:00:00";
+        return;
+      }
+
+      const hours = Math.floor(totalSeconds / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
+
+      document.getElementById("countdown").textContent =
+        String(hours).padStart(2, "0") + ":" +
+        String(minutes).padStart(2, "0") + ":" +
+        String(seconds).padStart(2, "0");
+
+      totalSeconds--;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+
+
+
+
+
+
+  
+  <title>Grandfather Clock</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      color: red;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: "Times New Roman", serif;
+    }
+
+    .clock {
+      font-size: 120px;
+      text-shadow: 0 0 25px red;
+      opacity: 0;
+      animation: flash 7s infinite;
+    }
+
+    @keyframes flash {
+      0% {
+        opacity: 0;
+      }
+      3% {
+        opacity: 1;
+      }
+      10% {
+        opacity: 1;
+      }
+      13% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+
+    .label {
+      position: absolute;
+      bottom: 20%;
+      font-size: 16px;
+      letter-spacing: 3px;
+      text-shadow: 0 0 10px red;
+    }
+  </style>
+
+
+
+  <!-- Grandfather Clock -->
+  <div class="clock">🕰️</div>
+
+  <!-- Optional text -->
+  <div class="label"></div>
+
+
+
+  
+    <script id="rendered-js">
+let totalSeconds = 5 * 60 * 60 + 37 * 60 + 18;
+
+function updateCountdown() {
+  if (totalSeconds <= 0) {
+    document.getElementById("countdown").innerHTML = "00:00:00";
+    return;
+  }
+
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor(totalSeconds % 3600 / 60);
+  const seconds = totalSeconds % 60;
+
+  document.getElementById("countdown").innerHTML =
+  String(hours).padStart(2, "0") + ":" +
+  String(minutes).padStart(2, "0") + ":" +
+  String(seconds).padStart(2, "0");
+
+  totalSeconds--;
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
+//# sourceURL=pen.js
+  </script>
+
+  
+
+
+
+</body></html>
